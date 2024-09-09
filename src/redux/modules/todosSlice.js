@@ -8,7 +8,7 @@ import { waitTwoSeconds } from '../../utils';
 export const __addToDo = createAsyncThunk(
   "__addToDo",
   async (todo, thunkAPI) => {
-    // await waitTwoSeconds();
+    await waitTwoSeconds();
     return todo;
   }
 );
@@ -16,7 +16,7 @@ export const __addToDo = createAsyncThunk(
 export const __deleteTodo = createAsyncThunk(
   "__deleteToDo",
   async (id, thunkAPI) => {
-    // await waitTwoSeconds();
+    await waitTwoSeconds();
     return id;
   }
 );
