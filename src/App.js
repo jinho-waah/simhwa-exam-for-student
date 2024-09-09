@@ -20,7 +20,6 @@ function App() {
   const [body, setBody] = useState("");
 
   const onAddTodo = ({ id, title, body }) => {
-    console.log(id);
     dispatch(__addToDo({ id, title, body }));
   };
 

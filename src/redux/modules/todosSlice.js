@@ -34,11 +34,11 @@ const todosSlice = createSlice({
     deleteTodo: (state, action) => {},
   },
   extraReducers: {
-    [__addToDo.fulfilled]: (state, action) => {
-      state.list.push(action.payload);
+    [__addToDo.fulfilled]: (state, { payload }) => {
+      state.list.push(payload);
     },
-    [__deleteTodo.fulfilled]: (state, action) => {
-      state.list = state.list.filter((todo) => todo.id !== action.payload);
+    [__deleteTodo.fulfilled]: (state, { payload }) => {
+      state.list = state.list.filter((todo) => todo.id !== payload);
     },
   },
 });
