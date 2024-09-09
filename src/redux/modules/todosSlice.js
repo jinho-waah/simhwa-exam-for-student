@@ -6,25 +6,44 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { waitTwoSeconds } from '../../utils';
 
 export const __addToDo = createAsyncThunk(
-  '__addToDo',
-  async (payload, thunkAPI) => {}
+  "__addToDo",
+  async (todo, thunkAPI) => {
+    // await waitTwoSeconds();
+    return todo;
+  }
 );
 
 export const __deleteTodo = createAsyncThunk(
-  '__deleteToDo',
-  async (payload, thunkAPI) => {}
+  "__deleteToDo",
+  async (id, thunkAPI) => {
+    // await waitTwoSeconds();
+    return id;
+  }
 );
 
 const initialState = {
   list: [],
 };
 
+
 const todosSlice = createSlice({
-  name: 'todos',
+  name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action) => {},
-    deleteTodo: (state, action) => {},
+    addTodo: (state, action) => {
+      return [...state, action.payload];
+    },
+    deleteTodo: (state, action) => {
+      return state.filter((todo) => todo.id !== action.payload);
+    },
+  },
+  extraReducers: {
+    [__addToDo.fulfilled]: (state, action) => {
+      state.list.push(action.payload);
+    },
+    [__deleteTodo.fulfilled]: (state, action) => {
+      state.list = state.list.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
 
