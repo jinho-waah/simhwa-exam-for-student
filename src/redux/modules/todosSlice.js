@@ -30,11 +30,12 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    // 여기 일반 리듀서는 사실상 공백으로 둬도 됨 없어도 됨..
+    // 여기 리듀서는 사실상 공백으로 둬도 됨..
     addTodo: (state, action) => {},
     deleteTodo: (state, action) => {},
   },
   extraReducers: {
+    // thunk를 사용하면서 새로 만든 extraReducers
     [__addToDo.fulfilled]: (state, { payload }) => {
       state.list.push(payload);
     },

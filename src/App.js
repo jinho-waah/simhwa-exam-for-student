@@ -52,7 +52,7 @@ function App() {
             placeholder="할 일 내용"
             onChange={onChangeBody}
           />
-
+          {/* onAddTodo로  */}
           <Button
             onClick={() => {
               onAddTodo({ id, title, body });
