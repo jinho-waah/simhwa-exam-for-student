@@ -30,6 +30,7 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    // 여기 일반 리듀서는 사실상 공백으로 둬도 됨 없어도 됨..
     addTodo: (state, action) => {},
     deleteTodo: (state, action) => {},
   },
